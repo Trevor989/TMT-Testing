@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚚 TMT (v1.0.0) 🚚</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Truck Mileage Tracker (v1.0.0)</h1>
+        <div class="row" id="cardContainer">
+            
+        </div>
+        
+        <button id="addCardBtn" class="btn btn-success btn-lg rounded-circle position-fixed"
+            style="bottom: 20px; right: 20px;">
+            <span style="position: relative; top: -3px;">+</span>
+        </button>
+    </div>
+
+    
+    <div class="modal fade" id="cardDetailsModal" tabindex="-1" role="dialog" aria-labelledby="cardDetailsModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="cardDetailsModalLabel">Card Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                    <form id="cardDetailsForm">
+                        <div class="form-group">
+                            <label for="truckName">License plate number</label>
+                            <input type="text" class="form-control" id="truckName" placeholder="Enter truck name">
+                        </div>
+                        <div class="form-group">
+                            <label for="driverName">Driver Name</label>
+                            <input type="text" class="form-control" id="driverName" placeholder="Enter driver name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="mileage">Mileage</label>
+                            <input type="number" class="form-control" id="mileage" placeholder="Enter mileage">
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" class="form-control" id="date">
+                        </div>
+
+                        
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                        <button type="button" class="btn btn-warning btn-block mt-2" id="deliverTruckBtn">Deliver Truck</button>
+                        <button type="button" class="btn btn-danger btn-block mt-2" id="deleteCardBtn">Delete</button>
+                        
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<div class="modal fade" id="deliverTruckModal" tabindex="-1" role="dialog" aria-labelledby="deliverTruckModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deliverTruckModalLabel">Deliver Truck Details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="deliverTruckForm">
+                        <div class="form-group">
+                            <label for="truckName">Current Mileage</label>
+                            <input type="text" class="form-control" id="Cmileage" placeholder="Enter current mileage">
+                        </div>
+                        <div class="form-group">
+                            <label for="driverName">Fuel Added</label>
+                            <input type="text" class="form-control" id="AddedFuel" placeholder="Enter added fuel">
+                        </div>
+                    <div class="form-group">
+                        <label for="mileage">Fuel Price Rate</label>
+                        <input type="number" class="form-control" id="FuelPriceRate" placeholder="Enter fuel price rate">
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" class="form-control" id="DDate">
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-block" id="goBackBtn">Back</button>
+                    <button type="button" class="btn btn-success btn-block" id="calculateBtn">Calculate</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="calculationResultModal" tabindex="-1" role="dialog" aria-labelledby="calculationResultModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="calculationResultModalLabel">Calculation Result</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1 id="calculationResult" class="text-center"></h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+   
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+   
+    <script src="{% static 'scripts.js' %}"></script>
+</body>
+</html>
